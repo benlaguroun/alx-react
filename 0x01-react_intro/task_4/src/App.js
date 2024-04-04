@@ -1,40 +1,27 @@
-// App.js
-
-import React from 'react';
-import { getFullYear, getFooterCopy } from './utils';
-import './App.css';
+import logo from "./holberton-logo.jpg";
+import "./App.css";
+import { getFullYear, getFooterCopy } from "./utils";
 
 function App() {
-  const handleLabelClick = (event) => {
-    const inputId = event.target.htmlFor;
-    const inputElement = document.getElementById(inputId);
-    if (inputElement) {
-      inputElement.focus();
-    }
-  };
-
   return (
     <div className="App">
-      <header className="App-header">
-        <img src="holberton-logo.jpg" alt="Holberton Logo" />
+      <div className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
         <h1>School dashboard</h1>
-      </header>
+      </div>
       <div className="App-body">
         <p>Login to access the full dashboard</p>
-        <div className="input-container">
-          <label htmlFor="email" onClick={handleLabelClick}>Email:</label>
-          <input type="email" id="email" />
-        </div>
-        <div className="input-container">
-          <label htmlFor="password" onClick={handleLabelClick}>Password:</label>
-          <input type="password" id="password" />
-        </div>
-        <button>OK</button>
+        <form>
+          <label htmlFor="email">Email:</label>
+          <input type="email" name="email"></input>
+          <label htmlFor="password">Password:</label>
+          <input type="password" name="password"></input>
+          <button>OK</button>
+        </form>
       </div>
-      <footer className="App-footer">
-        <p>{getFooterCopy(true)}</p>
-        <p>{getFullYear()}</p>
-      </footer>
+      <div className="App-footer">
+        Copyright {getFullYear()} - {getFooterCopy()}
+      </div>
     </div>
   );
 }
